@@ -56,7 +56,7 @@
 	  </table>
 	  
 	  
-  	<div class="auto-style8">
+  <div class="auto-style8">
 		<div class="auto-style8">
 			<br><span lang="de"><strong><span class="auto-style9">Our Products
 			<br></span><span class="auto-style7"><br></span></div>
@@ -83,8 +83,8 @@
 		</strong></span><br><br><br><br><br><br><br><br><br>
 	  
 	  
-  <!-- Footer -->
-  	</div>
+ <!-- Footer -->
+  </div>
 	  <footer>
     	  <p>© 202<span lang="de">5</span> Bracelet Shop | Handmade with Love</p>
   </footer>
