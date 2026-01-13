@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Anklet Shop</title>
+  <title>Woven Bracelet Shop</title>
   <link rel="stylesheet" href="produkt.css">
   <style type="text/css">
   .auto-style1 {
@@ -42,8 +42,8 @@
  	  
 	  
 <section id="shop" class="products">
-  <h2 style="height: 207px; width: 1471px;"><span lang="de">Our Anklet Offers!</span></h2>
- 
+  <h2 style="height: 207px; width: 1471px;"><span lang="de">Our Charm bracelet Offers!</span></h2>
+  
   <!-- Hier werden die Produkte dynamisch eingefügt -->
   <div id="productGrid" class="product-grid" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
     <!-- Produkte erscheinen hier durch JavaScript -->
@@ -78,17 +78,17 @@
         </select>
       </label>
 
-      <button type="submit">Order Custom Anklets</button>
+      <button type="submit">Order Custom Bracelet</button>
     </form>
-  </section> -->
+  </section>-->
 
   <!-- Footer -->
   <footer>
-    <p>© 202<span lang="de">5</span> Anklet Shop | Handmade with Love</p>
+    <p>© 202<span lang="de">5</span> Charm bracelet Shop | Handmade with Love</p>
   </footer>
 
 <script>
-const apiUrl = "https://script.google.com/macros/s/AKfycbyMoVpx7fjt6yJV3l3iVDaDxLYWW2xwrFgruXIQnpZ8P-O088sG-eRdB7r2Tzu8MlvGVA/exec"; 
+const apiUrl = "https://script.google.com/macros/s/AKfycbyJQ0yyyLmR-4VAdhvKyTOYD3qhtJ7xyxkhIcG9gD5Mf-A0-gjgazda2efa4YMKYYziDg/exec"; 
 
 fetch(apiUrl)
   .then(res => res.json())
@@ -98,7 +98,7 @@ fetch(apiUrl)
       const card = document.createElement("div");
       card.className = "product";
       card.innerHTML = `
-        <a href="ankletproduct.html?id=${encodeURIComponent(p.id)}">
+        <a href="produkt1.html?id=${encodeURIComponent(p.id)}">
           <img src="${p.images && p.images[0] ? p.images[0] : 'placeholder.jpg'}" 
                alt="${p.name}" 
                style="width:200px; height:200px; object-fit:cover;">

@@ -1,0 +1,387 @@
+﻿<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Novaelle — Shop Demo</title>
+
+<!-- Fonts (Google Fonts) -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Playfair+Display:wght@400;600;700;900&display=swap" rel="stylesheet">
+
+<style>
+  /* ========== Variables ========== */
+  :root{
+    --bg: #f2eafd;         /* hell-lilac Hintergrund */
+    --card: #ffffff;
+    --accent: #bfa6d9;     /* sanftes lila akzent */
+    --muted: #766a6f;
+    --text: #1f1f1f;
+    --gap: 28px;
+    --maxW: 1200px;
+  }
+
+  /* ========== Reset & Base ========== */
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    background:var(--bg);
+    color:var(--text);
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    line-height:1.4;
+  }
+  a{color:inherit; text-decoration:none}
+  .container{max-width:var(--maxW); margin:0 auto; padding:32px;}
+
+  /* ========== Header ========== */
+  header.site-header{
+    background:transparent;
+    position:sticky;
+    top:0;
+    z-index:40;
+    backdrop-filter: blur(6px);
+  }
+  .site-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    padding:18px 0;
+  }
+  .brand{
+    font-family: 'Playfair Display', serif;
+    font-size:26px;
+    letter-spacing:2px;
+    color:#4d3b4f;
+    font-weight:700;
+  }
+  nav.site-nav{display:flex; gap:18px; align-items:center}
+  nav.site-nav a{font-size:14px; color:var(--muted); padding:6px 10px; border-radius:8px}
+  nav.site-nav a:hover{background:rgba(0,0,0,0.03)}
+
+  /* ========== Hero (full width block that fills viewport height) ========== */
+  .hero-wrap{
+    min-height: calc(100vh - 86px); /* header height approx */
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:40px 20px;
+  }
+  .hero {
+    width:100%;
+    max-width:var(--maxW);
+    display:grid;
+    grid-template-columns: 1.35fr 1fr 1fr;
+    gap:16px;
+    align-items:stretch;
+  }
+
+  .hero-card{
+    position:relative;
+    border-radius:8px;
+    overflow:hidden;
+    background:var(--card);
+    min-height:320px;
+    box-shadow: 0 8px 30px rgba(18,18,18,0.06);
+  }
+  .hero-card img{width:100%; height:100%; object-fit:cover; display:block}
+
+  .hero-overlay{
+    position:absolute;
+    left:0; right:0; bottom:0;
+    padding:28px;
+    color:#fff;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    background: linear-gradient(0deg, rgba(0,0,0,0.42), rgba(0,0,0,0.0) 55%);
+  }
+  .hero-title{
+    font-family: 'Playfair Display', serif;
+    font-weight:700;
+    font-size:48px;
+    line-height:1.02;
+    margin:0;
+    letter-spacing:0.6px;
+  }
+  .hero-sub{font-size:16px; color:rgba(255,255,255,0.9)}
+  .hero-cta{
+    display:inline-block;
+    background:var(--card);
+    color:var(--text);
+    padding:10px 18px;
+    border-radius:8px;
+    font-weight:700;
+  }
+
+  .hero-strip{
+    margin-top:12px;
+    display:flex;
+    gap:12px;
+    align-items:center;
+    overflow-x:auto;
+    padding-bottom:6px;
+    padding-left:2px;
+  }
+  .hero-strip img{
+    width:160px; height:110px; object-fit:cover; border-radius:6px;
+    box-shadow:0 6px 18px rgba(0,0,0,0.06);
+    flex:0 0 auto;
+  }
+
+  /* ========== Catalog header ========== */
+  .catalog-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    margin:36px 0 16px;
+  }
+  .catalog-header h2{
+    margin:0;
+    font-family: 'Playfair Display', serif;
+    font-size:22px;
+    letter-spacing:1px;
+  }
+  .filters{display:flex; gap:8px; flex-wrap:wrap}
+
+  /* ========== Products grid ========== */
+  .products-grid{
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap:var(--gap);
+    margin-bottom:40px;
+  }
+  .product{
+    background:var(--card);
+    border-radius:10px;
+    padding:14px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    box-shadow: 0 8px 20px rgba(10,10,10,0.04);
+  }
+  .product img{width:100%; height:260px; object-fit:cover; border-radius:8px}
+  .product h3{
+    margin:6px 0 0;
+    font-family:'Playfair Display', serif;
+    font-size:16px;
+  }
+  .product p{margin:4px 0 0; color:var(--muted); font-size:13px}
+  .product .price{margin-top:auto; color:var(--accent); font-weight:800; font-size:15px}
+  .product .actions{display:flex; gap:8px; margin-top:8px}
+  .btn{padding:10px 12px; border-radius:8px; cursor:pointer; font-weight:700; border:none}
+  .btn-primary{background:var(--accent); color:#fff}
+  .btn-ghost{background:#fff; border:1px solid #eee; color:var(--muted)}
+
+  /* ========== Newsletter ========== */
+  .newsletter{
+    margin:48px 0;
+    padding:28px;
+    background:var(--card);
+    border-radius:10px;
+    box-shadow: 0 10px 24px rgba(10,10,10,0.04);
+    display:flex;
+    gap:18px;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .newsletter h3{margin:0; font-family:'Playfair Display', serif; font-size:20px}
+  .newsletter .muted{color:var(--muted)}
+  .newsletter input[type=email]{padding:12px 14px; border-radius:8px; border:1px solid #e6e0ee; width:320px}
+  .newsletter button{padding:12px 14px; border-radius:8px; background:var(--text); color:#fff; border:none; font-weight:700}
+
+  /* ========== Footer ========== */
+  footer{padding:28px 0; color:var(--muted); text-align:center; font-size:13px}
+
+  /* ========== Responsive rules ========== */
+  @media (max-width:1100px){
+    .products-grid{grid-template-columns:repeat(3,1fr)}
+    .hero{grid-template-columns: 1fr 1fr; grid-auto-rows: 300px}
+    .hero-title{font-size:40px}
+  }
+  @media (max-width:800px){
+    .container{padding:20px}
+    .hero{grid-template-columns:1fr; grid-auto-rows: 260px}
+    .hero-wrap{min-height:auto}
+    .products-grid{grid-template-columns:repeat(2,1fr)}
+    .product img{height:200px}
+    .hero-title{font-size:32px}
+  }
+  @media (max-width:420px){
+    .products-grid{grid-template-columns:1fr}
+    .product img{height:180px}
+    .site-inner{padding:12px 0}
+    .brand{font-size:20px}
+    .hero-title{font-size:24px}
+    .newsletter input[type=email]{width:100%}
+    .newsletter{flex-direction:column; align-items:stretch}
+  }
+
+  /* make body take full screen on mobile (no weird white bars) */
+  html, body {height:100%}
+</style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header" role="banner">
+    <div class="container site-inner">
+      <div class="brand">NOVAELLE</div>
+      <nav class="site-nav" role="navigation">
+        <a href="#">Katalog</a>
+        <a href="#">Über uns</a>
+        <a href="#">Kontakt</a>
+        <a href="cart.html" style="background:var(--accent); color:#fff; padding:8px 12px; border-radius:8px">Warenkorb</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <main>
+    <section class="hero-wrap" aria-label="Hero">
+      <div class="hero container" role="region" aria-label="Featured">
+        <!-- Replace images/hero1.jpg etc. with your picture files -->
+        <div class="hero-card">
+          <img src="images/hero1.jpg" alt="Hero 1">
+          <div class="hero-overlay">
+            <div class="hero-sub">Autorische Mode</div>
+            <h1 class="hero-title">Handgemachte Kollektionen</h1>
+            <a class="hero-cta" href="#">Zum Katalog</a>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <img src="images/hero2.jpg" alt="Hero 2">
+          <div class="hero-overlay">
+            <h3 style="margin:0; font-weight:600">Edle Stoffe</h3>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <img src="images/hero3.jpg" alt="Hero 3">
+          <div class="hero-overlay">
+            <h3 style="margin:0; font-weight:600">Neue Kollektion</h3>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="container hero-strip" aria-hidden="false">
+        <!-- small preview images - replace with your own -->
+        <img src="images/strip1.jpg" alt="">
+        <img src="images/strip2.jpg" alt="">
+        <img src="images/strip3.jpg" alt="">
+        <img src="images/strip4.jpg" alt="">
+      </div>
+    </section>
+
+    <!-- Catalog -->
+    <section class="container" aria-label="Catalog">
+      <div class="catalog-header">
+        <h2>Katalog</h2>
+        <div class="filters">
+          <button class="btn btn-ghost">Alle</button>
+          <button class="btn btn-ghost">Kleider</button>
+          <button class="btn btn-ghost">Oberteile</button>
+          <button class="btn btn-ghost">Accessoires</button>
+        </div>
+      </div>
+
+      <div class="products-grid" id="productsGrid">
+        <!-- JS fügt Produkte ein -->
+      </div>
+
+      <div class="newsletter" role="form" aria-label="Newsletter">
+        <div>
+          <h3>Abonniere unseren Newsletter</h3>
+          <p class="muted">10% Rabatt auf deine erste Bestellung.</p>
+          <div style="display:flex; gap:12px; margin-top:8px; align-items:center;">
+            <input id="newsletterEmail" type="email" placeholder="Deine E-Mail">
+            <button id="subscribeBtn">Anmelden</button>
+          </div>
+        </div>
+        <div style="text-align:right; color:var(--muted)">
+          <p>Novaelle — Design Studio</p>
+          <p>Handgemachte Kollektionen</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2025 Novaelle — Alle Rechte vorbehalten.
+    </div>
+  </footer>
+
+<script>
+  /* --------- Beispielprodukte ---------
+     Ersetze image-Pfade mit deinen Bildern (images/product1.jpg etc.)
+  */
+  const sampleProducts = [
+    {id:1, name:"Bluse NOVAELLE", price:5500, desc:"Feine Bluse", img:"images/product1.jpg"},
+    {id:2, name:"Kleid NOVAELLE", price:9000, desc:"Elegantes Kleid", img:"images/product2.jpg"},
+    {id:3, name:"Kostüm NOVAELLE", price:15500, desc:"Zweiteiler", img:"images/product3.jpg"},
+    {id:4, name:"Jacke NOVAELLE", price:7900, desc:"Leichte Jacke", img:"images/product4.jpg"},
+    {id:5, name:"Hut NOVAELLE", price:2700, desc:"Eleganter Hut", img:"images/product5.jpg"},
+    {id:6, name:"Rock NOVAELLE", price:6500, desc:"Midirock", img:"images/product6.jpg"},
+    {id:7, name:"Top NOVAELLE", price:3200, desc:"Seidentop", img:"images/product7.jpg"},
+    {id:8, name:"Schal NOVAELLE", price:1800, desc:"Weicher Schal", img:"images/product8.jpg"}
+  ];
+
+  function formatPrice(n){ return n.toLocaleString('de-DE') + " Rwf"; }
+
+  const grid = document.getElementById('productsGrid');
+  sampleProducts.forEach(p=>{
+    const card = document.createElement('article');
+    card.className = 'product';
+    card.innerHTML = `
+      <img src="${p.img}" alt="${p.name}">
+      <h3>${p.name}</h3>
+      <p>${p.desc}</p>
+      <div class="price">${formatPrice(p.price)}</div>
+      <div class="actions">
+        <button class="btn btn-primary" data-id="${p.id}">In den Warenkorb</button>
+        <button class="btn btn-ghost" onclick="location.href='produkt1.html?id=${p.id}'">Details</button>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+
+  // Newsletter sample behavior
+  document.getElementById('subscribeBtn').addEventListener('click', ()=>{
+    const email = document.getElementById('newsletterEmail').value.trim();
+    if(!email){ alert('Bitte E-Mail eingeben'); return; }
+    alert('Danke — wir haben ' + email + ' erhalten. (Demo)');
+    document.getElementById('newsletterEmail').value = '';
+  });
+
+  // simple localStorage cart (keeps page behavior you already used)
+  const CART_KEY = 'nala_cart_v1';
+  function getCart(){ return JSON.parse(localStorage.getItem(CART_KEY) || '[]'); }
+  function saveCart(c){ localStorage.setItem(CART_KEY, JSON.stringify(c)); updateCartBadge(); }
+  function updateCartBadge(){
+    const cartBtn = document.querySelector('.site-nav a[href="cart.html"]');
+    const total = getCart().reduce((s,i)=> s + (i.qty||1), 0);
+    if(cartBtn) cartBtn.textContent = `Warenkorb (${total})`;
+  }
+  updateCartBadge();
+  document.querySelectorAll('.btn-primary').forEach(b=>{
+    b.addEventListener('click', e=>{
+      const id = Number(b.dataset.id);
+      const prod = sampleProducts.find(x=>x.id===id);
+      if(!prod) return;
+      const cart = getCart();
+      const existing = cart.find(it=> it.id === prod.id);
+      if(existing) existing.qty = (existing.qty || 1) + 1;
+      else cart.push({id:prod.id, name:prod.name, price:prod.price, qty:1, image:prod.img});
+      saveCart(cart);
+      alert(prod.name + " wurde in den Warenkorb gelegt.");
+    });
+  });
+</script>
+</body>
+</html>

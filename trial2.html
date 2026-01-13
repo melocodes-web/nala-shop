@@ -1,0 +1,136 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Main Page </title>
+  <link rel="stylesheet" href="nala.css">
+  <style type="text/css">
+  .auto-style1 {
+	  margin-left: 0px;
+  }
+  .auto-style2 {
+	  border-color: #00FFFF;
+	  border-width: 0;
+  }
+  .auto-style7 {
+	  font-size: large;
+  }
+  .auto-style8 {
+	  text-align: center;
+  }
+  .auto-style9 {
+	  font-family: "Lucida Console";
+	  font-size: xx-large;
+  }
+  .auto-style12 {
+	  font-size: xx-large;
+  }
+  .auto-style13 {
+	  font-family: "Rockwell Extra Bold";
+	  font-size: xx-large;
+  }
+  .auto-style6 {
+	  color: #000000;
+	  font-size: xx-large;
+  }
+  </style>
+</head>
+<body>
+<header style="display:flex; justify-content:space-between; align-items:center; padding:10px 20px;">
+  
+  <a href="cart.html" id="cartLink" style="text-decoration:none; color:#333; font-weight:bold;">
+    🛒 Cart (<span id="cartCount">0</span>)
+  </a>
+</header>
+
+
+  <!-- Hero Section -->
+  <section class="hero">
+      <table class="auto-style2" style="width: 100%">
+		  <tr>
+			  <td>
+			  <img alt="Banner" class="auto-style1" height="290" src="https://res.cloudinary.com/daze6fkjc/image/upload/f_auto/v1762422273/banner_no4jrr.jpg" width="1284">&nbsp;</td>
+		  </tr>
+		  <tr>
+			  <td class="auto-style8">
+			  <span lang="de">
+			  <span class="auto-style6">
+			  Beautifully handmade beaded necklaces,<br>bracelets ,armbands and 
+			  Phonecharms</span></span></td>
+		  </tr>
+	  </table>
+	  
+	  
+  	<div class="auto-style8">
+		<div class="auto-style8">
+			<br><span lang="de"><strong><span class="auto-style13">Our Products
+			</span><span class="auto-style9">
+			<br></span></strong><strong><span class="auto-style7"><br></span></div>
+		</strong></span><br><br><br>
+		<span class="auto-style12" lang="de">Our Catalog </span>
+		<table style="width: 100%">
+			<tr>
+				<td style="width: 100%">
+				<img alt="gg" height="373" src="https://res.cloudinary.com/daze6fkjc/image/upload/v1762682432/IMG-20251102-WA0012_g6pz9z.jpg" width="455"></td>
+				<td style="width: 51px">
+				<img alt="gg" height="378" src="https://res.cloudinary.com/daze6fkjc/image/upload/v1762682428/IMG-20250708-WA0063_aeq89e.jpg" width="417"></td>
+				<td>
+				<img alt="hh" height="376" src="https://res.cloudinary.com/daze6fkjc/image/upload/v1762682429/IMG-20250907-WA0377_jbwoir.jpg" width="424"></td>
+				<td><img alt="hhh" height="379" src="https://res.cloudinary.com/daze6fkjc/image/upload/v1762682431/IMG-20250907-WA0775_iapoiq.jpg" width="468"></td>
+			</tr>
+			<tr>
+				<td colspan="2">
+				<img alt="hh" height="570" src="https://res.cloudinary.com/daze6fkjc/image/upload/v1762682427/IMG-20250708-WA0040_havmmx.jpg" width="682">
+				</td>
+				<td colspan="2">
+				<img alt="hh" height="602" src="https://res.cloudinary.com/daze6fkjc/image/upload/v1762682426/IMG-20250708-WA0036_xpvah5.jpg" width="794"></td>
+			</tr>
+			
+			<tr><td rowspan="2" style="width: 330px">
+				<img alt="gg" height="757" src="https://res.cloudinary.com/daze6fkjc/image/upload/v1762682429/IMG-20250907-WA0396_ojtxbb.jpg" width="571"></td>
+			<td style="height: 378; width: 51px"><img alt="hh" height="378" src="https://res.cloudinary.com/daze6fkjc/image/upload/v1762682429/IMG-20250907-WA0404_pw4zhl.jpg" width="428">	  
+	  
+  </td>
+			<td style="height: 378"><img alt="hh" height="378" src="https://res.cloudinary.com/daze6fkjc/image/upload/v1762682430/IMG-20250907-WA0412_jheopm.jpg" width="428">	  
+	  
+  </td>
+			<td rowspan="2">
+			<img alt="hhh" height="778" src="https://res.cloudinary.com/daze6fkjc/image/upload/v1762682428/IMG-20250907-WA0388_gjidfl.jpg" width="499"></td></tr>
+			 <tr>
+			<td colspan="2">
+			<img alt="ss" class="auto-style1" height="406" src="https://res.cloudinary.com/daze6fkjc/image/upload/v1762682431/IMG-20250907-WA0418_w6ubcc.jpg" width="751"></td>
+			</tr>
+
+		</table>
+		<br><br><br><br><br><br>
+<!-- Footer -->
+  	</div>
+	  <footer>
+    	  <p>© 202<span lang="de">5</span> Jewellery Shop | Handmade with Love</p>
+  </footer>
+
+<script>
+const CART_KEY = "nala_cart_v1";
+
+function getCart() {
+  const raw = localStorage.getItem(CART_KEY);
+  return raw ? JSON.parse(raw) : [];
+}
+
+function updateCartCount() {
+  const cart = getCart();
+  const countEl = document.getElementById("cartCount");
+  if (countEl) countEl.textContent = cart.length;
+}
+
+// aktualisiert beim Laden
+updateCartCount();
+
+// optional: globale Funktion für andere Seiten (z. B. cart.html)
+window.updateCartCount = updateCartCount;
+</script>
+
+</body>
+</html>

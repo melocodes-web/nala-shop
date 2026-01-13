@@ -1,0 +1,250 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Main Page</title>
+<link rel="stylesheet" href="nala.css">
+<style>
+  body {
+    margin: 0;
+    font-family: "Lucida Console", sans-serif;
+    background-color: #f8f8f8;
+    color: #000;
+  }
+
+  header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px 20px;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+
+  a#cartLink {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+  }
+
+  /* Hero Section */
+  .hero {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    gap: 20px;
+    background-color: #dcdcff;
+    text-align: center;
+  }
+
+  .hero-text {
+    flex: 1 1 300px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    min-width: 280px;
+  }
+
+  .hero img {
+    flex: 1 1 300px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+
+  /* Products Section */
+  .products {
+    padding: 20px;
+    text-align: center;
+  }
+
+  .products h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    justify-items: center;
+  }
+
+  .product-grid .product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s;
+  }
+
+  .product-grid .product img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+
+  .product-grid .product:hover {
+    transform: translateY(-5px);
+  }
+
+  .product-title {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  /* Masonry Catalog Section */
+  .catalog {
+    padding: 20px;
+  }
+
+  .catalog h2 {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .masonry {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-auto-rows: 10px;
+    gap: 15px;
+  }
+
+  .masonry-item {
+    display: block;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .masonry-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+    transition: transform 0.3s;
+  }
+
+  .masonry-item img:hover {
+    transform: scale(1.05);
+  }
+
+  footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
+    margin-top: 40px;
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      flex-direction: column;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="cart.html" id="cartLink">🛒 Cart (<span id="cartCount">0</span>)</a>
+</header>
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-text">
+    Beautifully handmade beaded necklaces, bracelets, armbands, and phone charms.
+  </div>
+  <img src="banner_no4jrr.jpg" alt="Banner">
+</section>
+
+<!-- Products Section -->
+<section class="products">
+  <h2>Our Products</h2>
+  <div class="product-grid">
+    <div class="product">
+      <a href="braceletpage.html">
+        <img src="WhatsApp_Bild_2025-11-01_um_11.17.03_a2b2dd8f_z6tkaf.jpg" alt="Bracelets">
+      </a>
+      <div class="product-title">Bracelets</div>
+    </div>
+    <div class="product">
+      <a href="wovenbracelets.html">
+        <img src="WhatsApp_Bild_2025-11-01_um_11.17.03_a2b2dd8f_z6tkaf.jpg" alt="Woven Bracelets">
+      </a>
+      <div class="product-title">Woven Bracelets For Men</div>
+    </div>
+    <div class="product">
+      <a href="charmbracelets.html">
+        <img src="WhatsApp_Bild_2025-11-01_um_11.17.03_a2b2dd8f_z6tkaf.jpg" alt="Charm bracelets">
+      </a>
+      <div class="product-title">Charm Bracelets</div>
+    </div>
+    <div class="product">
+      <a href="anklethomepage.html">
+        <img src="WhatsApp_Bild_2025-11-02_um_19.08.22_e0400915_w8pfy0.jpg" alt="Anklets">
+      </a>
+      <div class="product-title">Anklets</div>
+    </div>
+    <div class="product">
+      <a href="phonecharmshomepage.html">
+        <img src="WhatsApp_Bild_2025-11-02_um_19.08.00_5fa5ed61_tphcfk.jpg" alt="Phone Charms">
+      </a>
+      <div class="product-title">Phone Charms</div>
+    </div>
+    <div class="product">
+      <a href="candaddshome.html">
+        <img src="WhatsApp_Bild_2025-11-06_um_12.43.21_9f2e71c6_zknmto.jpg" alt="Charms and Addons">
+      </a>
+      <div class="product-title">Charms & Addons</div>
+    </div>
+    <div class="product">
+      <a href="Necklaceshomepage.html">
+        <img src="WhatsApp_Bild_2025-11-02_um_19.08.23_ba6003f2_xdnexo.jpg" alt="Necklaces">
+      </a>
+      <div class="product-title">Necklaces</div>
+    </div>
+  </div>
+</section>
+
+<!-- Catalog Section -->
+<section class="catalog">
+  <h2>Our Catalog</h2>
+  <div class="masonry">
+    <div class="masonry-item"><img src="IMG-20251102-WA0012_g6pz9z.jpg" alt=""></div>
+    <div class="masonry-item"><img src="IMG-20250708-WA0063_aeq89e.jpg" alt=""></div>
+    <div class="masonry-item"><img src="IMG-20250907-WA0377_jbwoir.jpg" alt=""></div>
+    <div class="masonry-item"><img src="IMG-20250907-WA0775_iapoiq.jpg" alt=""></div>
+    <div class="masonry-item"><img src="IMG-20250708-WA0040_havmmx.jpg" alt=""></div>
+    <div class="masonry-item"><img src="IMG-20250708-WA0036_xpvah5.jpg" alt=""></div>
+    <div class="masonry-item"><img src="IMG-20250907-WA0396_ojtxbb.jpg" alt=""></div>
+    <div class="masonry-item"><img src="IMG-20250907-WA0404_pw4zhl.jpg" alt=""></div>
+    <div class="masonry-item"><img src="IMG-20250907-WA0412_jheopm.jpg" alt=""></div>
+    <div class="masonry-item"><img src="IMG-20250907-WA0388_gjidfl.jpg" alt=""></div>
+    <div class="masonry-item"><img src="IMG-20250907-WA0418_w6ubcc.jpg" alt=""></div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Jewellery Shop | Handmade with Love</p>
+</footer>
+
+<script>
+const CART_KEY = "nala_cart_v1";
+function getCart() {
+  const raw = localStorage.getItem(CART_KEY);
+  return raw ? JSON.parse(raw) : [];
+}
+function updateCartCount() {
+  const cart = getCart();
+  const countEl = document.getElementById("cartCount");
+  if (countEl) countEl.textContent = cart.length;
+}
+updateCartCount();
+window.updateCartCount = updateCartCount;
+</script>
+
+</body>
+</html>

@@ -32,19 +32,24 @@
   </style>
 </head>
 <body>
+<header style="display:flex; justify-content:space-between; align-items:center; padding:10px 20px;">
+  <a href="index.html" style="text-decoration:none; color:#333;">← Back to Home page</a>
+  <a href="cart.html" id="cartLink" style="text-decoration:none; color:#333; font-weight:bold;">
+    🛒 Cart (<span id="cartCount">0</span>)
+  </a>
+</header>
 
  	  
 	  
 <section id="shop" class="products">
   <h2 style="height: 207px; width: 1471px;"><span lang="de">Our Phonecharm Offers!</span></h2>
-  <a href="nalahomepage.html" style="text-decoration:none;color:#333;">← Back to Home page</a>
-  <!-- Hier werden die Produkte dynamisch eingefügt -->
+    <!-- Hier werden die Produkte dynamisch eingefügt -->
   <div id="productGrid" class="product-grid" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
     <!-- Produkte erscheinen hier durch JavaScript -->
   </div>
 </section>
 
-  <!-- Customization Section -->
+  <!-- Customization Section 
   <section class="custom">
     <h2>Create Your Special Phonecharm</h2>
     <form style="width: 1381px; height: 215px">
@@ -74,7 +79,7 @@
 
       <button type="submit">Order Custom Phonecharms</button>
     </form>
-  </section>
+  </section> -->
 
   <!-- Footer -->
   <footer>
@@ -110,6 +115,28 @@ fetch(apiUrl)
     document.getElementById("productGrid").innerHTML = "<p>Products werent able to be uploaded .</p>";
   });
 </script>
+
+<script>
+const CART_KEY = "nala_cart_v1";
+
+function getCart() {
+  const raw = localStorage.getItem(CART_KEY);
+  return raw ? JSON.parse(raw) : [];
+}
+
+function updateCartCount() {
+  const cart = getCart();
+  const countEl = document.getElementById("cartCount");
+  if (countEl) countEl.textContent = cart.length;
+}
+
+// aktualisiert beim Laden
+updateCartCount();
+
+// optional: globale Funktion für andere Seiten (z. B. cart.html)
+window.updateCartCount = updateCartCount;
+</script>
+
 
 
 </body>
