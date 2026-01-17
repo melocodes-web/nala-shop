@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Woven Bracelet Shop</title>
+  <title>Charmbracelet Shop</title>
   <link rel="stylesheet" href="produkt.css">
   <style type="text/css">
   .auto-style1 {
@@ -88,7 +88,7 @@
   </footer>
 
 <script>
-const apiUrl = "https://script.google.com/macros/s/AKfycbyJQ0yyyLmR-4VAdhvKyTOYD3qhtJ7xyxkhIcG9gD5Mf-A0-gjgazda2efa4YMKYYziDg/exec"; 
+const apiUrl = "https://script.google.com/macros/s/AKfycbz69xstiDgAl5aNjzxqZ6FkWgA9z35io4bZQsfmI_GWpRWCdwEUsb7iaKcLURbaYnL94Q/exec"; 
 
 fetch(apiUrl)
   .then(res => res.json())
@@ -98,7 +98,7 @@ fetch(apiUrl)
       const card = document.createElement("div");
       card.className = "product";
       card.innerHTML = `
-        <a href="produkt1.html?id=${encodeURIComponent(p.id)}">
+        <a href="charmsbraceletproduct.html?id=${encodeURIComponent(p.id)}">
           <img src="${p.images && p.images[0] ? p.images[0] : 'placeholder.jpg'}" 
                alt="${p.name}" 
                style="width:200px; height:200px; object-fit:cover;">
